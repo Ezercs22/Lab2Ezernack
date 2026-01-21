@@ -79,7 +79,11 @@ The scatterplot for total population and plastic waste per capita is more cluste
 Remove this text, and add your answer for Exercise 5 here.
 
 ```{r recreate-viz}
-# insert code here
+plastic_waste %>%
+  filter(plastic_waste_per_cap > 3)
+
+
+ggplot(plastic_waste, aes(x= coastal_pop/total_pop , y= plastic_waste_per_cap, color = continent)) + geom_jitter() + geom_smooth() + labs(title = "Plastic waste vs. coastal population proportion" , subtitle = "by continent" , x = "Coastal population proportion (Coastal/total population")
 ```
 
 

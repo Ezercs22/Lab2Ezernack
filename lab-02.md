@@ -136,5 +136,27 @@ population and plastic waste per capita
 Remove this text, and add your answer for Exercise 5 here.
 
 ``` r
-# insert code here
+plastic_waste %>%
+  filter(plastic_waste_per_cap > 3)
 ```
+
+    ##   code              entity     continent year gdp_per_cap plastic_waste_per_cap
+    ## 1  TTO Trinidad and Tobago North America 2010    31260.91                   3.6
+    ##   mismanaged_plastic_waste_per_cap mismanaged_plastic_waste coastal_pop
+    ## 1                             0.19                    94066     1358433
+    ##   total_pop
+    ## 1   1341465
+
+``` r
+ggplot(plastic_waste, aes(x= coastal_pop/total_pop , y= plastic_waste_per_cap, color = continent)) + geom_jitter() + geom_smooth() + labs(title = "Plastic waste vs. coastal population proportion" , subtitle = "by continent" , x = "Coastal population proportion (Coastal/total population")
+```
+
+    ## `geom_smooth()` using method = 'loess' and formula = 'y ~ x'
+
+    ## Warning: Removed 61 rows containing non-finite outside the scale range
+    ## (`stat_smooth()`).
+
+    ## Warning: Removed 61 rows containing missing values or values outside the scale range
+    ## (`geom_point()`).
+
+![](lab-02_files/figure-gfm/recreate-viz-1.png)<!-- -->
