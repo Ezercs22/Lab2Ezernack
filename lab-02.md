@@ -1,7 +1,7 @@
 Lab 02 - Plastic waste
 ================
-Insert your name here
-Insert date here
+Charlize Ezernack
+01/21/26
 
 ## Load packages and data
 
@@ -33,14 +33,24 @@ ggplot(data = plastic_waste, aes(x = plastic_waste_per_cap)) + geom_histogram(bi
 
 ![](lab-02_files/figure-gfm/plastic-waste-continent-1.png)<!-- -->
 Africa is the continent that overall does a better job at minimizing
-plastic waste per capita Plastic waste output varies by country inside
-the continents itself
+plastic waste per capita; however, plastic waste output varies by
+country inside the continents itself
 
 ### Exercise 2
 
 ``` r
-# insert code here
+ggplot(data = plastic_waste, aes(x=plastic_waste_per_cap, color = continent, fill = continent)) + geom_density(alpha = 0.1)
 ```
+
+    ## Warning: Removed 51 rows containing non-finite outside the scale range
+    ## (`stat_density()`).
+
+![](lab-02_files/figure-gfm/plastic-waste-density-1.png)<!-- --> Fill
+and color occurred within the aes() function since it has to do with
+mapping the quality of each point such as defining its color by
+continent, and viewing density by continent color. However, alpha is
+defined within geom_density since transparency has to do with the
+mapping of the graph between the points overall.
 
 ### Exercise 3
 
