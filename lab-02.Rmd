@@ -38,30 +38,41 @@ Fill and color occurred within the aes() function since it has to do with mappin
 ### Exercise 3
 
 Remove this text, and add your answer for Exercise 3 here.
+```{r plastic-waste-box}
+ggplot(plastic_waste, aes(x=continent, y=plastic_waste_per_cap)) + geom_boxplot()
+
+```
 
 ```{r plastic-waste-violin}
-# insert code here
+ggplot(plastic_waste, aes(x=continent, y=plastic_waste_per_cap)) + geom_violin()
 ```
+
+The data from the box plot distribution clearly identifies the outliers, mean, and range of the data. Whereas, the violin plots demonstrate much more nuance about the spread of the data, outliers, and a fuller picture of the clustering of the data. 
 
 ### Exercise 4
 
 Remove this text, and add your answer for Exercise 4 here.
 
 ```{r plastic-waste-mismanaged}
-# insert code here
+ggplot(plastic_waste, aes(x=plastic_waste_per_cap, y= mismanaged_plastic_waste_per_cap)) + geom_point()
 ```
+
+The relationship shows those who do not have much mismanaged waste per capita have less plastic waste per capita
 
 ```{r plastic-waste-mismanaged-continent}
-# insert code here
+ggplot(plastic_waste, aes(x=plastic_waste_per_cap, y= mismanaged_plastic_waste_per_cap, color = continent)) + geom_point()
 ```
+With Europe there seems to be a positive linear correlation between plastic waste and mismanaged waste per capita. However, with Africa it seems that even low there are low levels of plastic waste generally, there is a presence of a lot of mismanaged plastic waste per capita. 
 
 ```{r plastic-waste-population-total}
-# insert code here
+ggplot(plastic_waste, aes(x=plastic_waste_per_cap, y= total_pop, color = continent)) + geom_point()
 ```
 
 ```{r plastic-waste-population-coastal}
-# insert code here
+ggplot(plastic_waste, aes(x=plastic_waste_per_cap, y= coastal_pop, color = continent)) + geom_point()
 ```
+
+The scatterplot for total population and plastic waste per capita is more clustered together and less outliers which leads me to believe there is a stronger linear association, rather than total costal population and plastic waste per capita 
 
 ### Exercise 5
 
