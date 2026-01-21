@@ -1,17 +1,15 @@
----
-title: "Lab 02 - Plastic waste"
-author: "Insert your name here"
-date: "Insert date here"
-output: github_document
----
+Lab 02 - Plastic waste
+================
+Insert your name here
+Insert date here
 
 ## Load packages and data
 
-```{r load-packages, message=FALSE}
+``` r
 library(tidyverse) 
 ```
 
-```{r load-data, message=FALSE}
+``` r
 plastic_waste <- read.csv("data/plastic-waste.csv")
 ```
 
@@ -21,17 +19,26 @@ plastic_waste <- read.csv("data/plastic-waste.csv")
 
 Remove this text, and add your answer for Exercise 1 here.
 
-```{r plastic-waste-continent}
+``` r
 ggplot(data = plastic_waste, aes(x = plastic_waste_per_cap)) + geom_histogram(bindwidth = 0.2) + facet_wrap(~continent)
-
-
 ```
-Africa is the continent that overall does a better job at minimizing plastic waste per capita
-Plastic waste output varies by country inside the continents itself 
+
+    ## Warning in geom_histogram(bindwidth = 0.2): Ignoring unknown parameters:
+    ## `bindwidth`
+
+    ## `stat_bin()` using `bins = 30`. Pick better value `binwidth`.
+
+    ## Warning: Removed 51 rows containing non-finite outside the scale range
+    ## (`stat_bin()`).
+
+![](lab-02_files/figure-gfm/plastic-waste-continent-1.png)<!-- -->
+Africa is the continent that overall does a better job at minimizing
+plastic waste per capita Plastic waste output varies by country inside
+the continents itself
 
 ### Exercise 2
 
-```{r plastic-waste-density}
+``` r
 # insert code here
 ```
 
@@ -39,7 +46,7 @@ Plastic waste output varies by country inside the continents itself
 
 Remove this text, and add your answer for Exercise 3 here.
 
-```{r plastic-waste-violin}
+``` r
 # insert code here
 ```
 
@@ -47,19 +54,19 @@ Remove this text, and add your answer for Exercise 3 here.
 
 Remove this text, and add your answer for Exercise 4 here.
 
-```{r plastic-waste-mismanaged}
+``` r
 # insert code here
 ```
 
-```{r plastic-waste-mismanaged-continent}
+``` r
 # insert code here
 ```
 
-```{r plastic-waste-population-total}
+``` r
 # insert code here
 ```
 
-```{r plastic-waste-population-coastal}
+``` r
 # insert code here
 ```
 
@@ -67,8 +74,6 @@ Remove this text, and add your answer for Exercise 4 here.
 
 Remove this text, and add your answer for Exercise 5 here.
 
-```{r recreate-viz}
+``` r
 # insert code here
 ```
-
-
