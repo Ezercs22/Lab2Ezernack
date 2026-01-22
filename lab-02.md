@@ -17,8 +17,6 @@ plastic_waste <- read.csv("data/plastic-waste.csv")
 
 ### Exercise 1
 
-Remove this text, and add your answer for Exercise 1 here.
-
 ``` r
 ggplot(data = plastic_waste, aes(x = plastic_waste_per_cap)) + geom_histogram(bindwidth = 0.2) + facet_wrap(~continent)
 ```
@@ -54,8 +52,6 @@ mapping of the graph between the points overall.
 
 ### Exercise 3
 
-Remove this text, and add your answer for Exercise 3 here.
-
 ``` r
 ggplot(plastic_waste, aes(x=continent, y=plastic_waste_per_cap)) + geom_boxplot()
 ```
@@ -80,8 +76,6 @@ more nuance about the spread of the data, outliers, and a fuller picture
 of the clustering of the data.
 
 ### Exercise 4
-
-Remove this text, and add your answer for Exercise 4 here.
 
 ``` r
 ggplot(plastic_waste, aes(x=plastic_waste_per_cap, y= mismanaged_plastic_waste_per_cap)) + geom_point()
@@ -133,30 +127,25 @@ population and plastic waste per capita
 
 ### Exercise 5
 
-Remove this text, and add your answer for Exercise 5 here.
-
 ``` r
 plastic_waste %>%
-  filter(plastic_waste_per_cap > 3)
-```
+  filter(plastic_waste_per_cap < 3) %>%
 
-    ##   code              entity     continent year gdp_per_cap plastic_waste_per_cap
-    ## 1  TTO Trinidad and Tobago North America 2010    31260.91                   3.6
-    ##   mismanaged_plastic_waste_per_cap mismanaged_plastic_waste coastal_pop
-    ## 1                             0.19                    94066     1358433
-    ##   total_pop
-    ## 1   1341465
 
-``` r
-ggplot(plastic_waste, aes(x= coastal_pop/total_pop , y= plastic_waste_per_cap, color = continent)) + geom_jitter() + geom_smooth() + labs(title = "Plastic waste vs. coastal population proportion" , subtitle = "by continent" , x = "Coastal population proportion (Coastal/total population")
+ggplot (aes(x= coastal_pop/total_pop , y= plastic_waste_per_cap)) + geom_point(aes(color=continent)) + geom_smooth(aes(x= coastal_pop/total_pop , y= plastic_waste_per_cap )) + labs(title = "Plastic waste vs. coastal population proportion" , subtitle = "by continent" , x = "Coastal population proportion (Coastal/total population)")
 ```
 
     ## `geom_smooth()` using method = 'loess' and formula = 'y ~ x'
 
-    ## Warning: Removed 61 rows containing non-finite outside the scale range
+    ## Warning: Removed 10 rows containing non-finite outside the scale range
     ## (`stat_smooth()`).
 
-    ## Warning: Removed 61 rows containing missing values or values outside the scale range
+    ## Warning: Removed 10 rows containing missing values or values outside the scale range
     ## (`geom_point()`).
 
-![](lab-02_files/figure-gfm/recreate-viz-1.png)<!-- -->
+![](lab-02_files/figure-gfm/recreate-viz-1.png)<!-- --> Dr. Garrison and
+I decided that it was not worth more effort to turn the confidence
+interval line black; I tinkered enough with this code to achieve the
+goals of exercise 5:) As a summary of this plot it seems that those who
+live on the coast have mostly low levels of plastic waste per capita;
+however, there are outliers.

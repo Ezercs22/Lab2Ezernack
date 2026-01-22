@@ -19,8 +19,6 @@ plastic_waste <- read.csv("data/plastic-waste.csv")
 
 ### Exercise 1
 
-Remove this text, and add your answer for Exercise 1 here.
-
 ```{r plastic-waste-continent}
 ggplot(data = plastic_waste, aes(x = plastic_waste_per_cap)) + geom_histogram(bindwidth = 0.2) + facet_wrap(~continent)
 
@@ -37,7 +35,6 @@ Fill and color occurred within the aes() function since it has to do with mappin
 
 ### Exercise 3
 
-Remove this text, and add your answer for Exercise 3 here.
 ```{r plastic-waste-box}
 ggplot(plastic_waste, aes(x=continent, y=plastic_waste_per_cap)) + geom_boxplot()
 
@@ -51,7 +48,6 @@ The data from the box plot distribution clearly identifies the outliers, mean, a
 
 ### Exercise 4
 
-Remove this text, and add your answer for Exercise 4 here.
 
 ```{r plastic-waste-mismanaged}
 ggplot(plastic_waste, aes(x=plastic_waste_per_cap, y= mismanaged_plastic_waste_per_cap)) + geom_point()
@@ -72,18 +68,19 @@ ggplot(plastic_waste, aes(x=plastic_waste_per_cap, y= total_pop, color = contine
 ggplot(plastic_waste, aes(x=plastic_waste_per_cap, y= coastal_pop, color = continent)) + geom_point()
 ```
 
+
 The scatterplot for total population and plastic waste per capita is more clustered together and less outliers which leads me to believe there is a stronger linear association, rather than total costal population and plastic waste per capita 
 
 ### Exercise 5
 
-Remove this text, and add your answer for Exercise 5 here.
-
 ```{r recreate-viz}
 plastic_waste %>%
-  filter(plastic_waste_per_cap > 3)
+  filter(plastic_waste_per_cap < 3) %>%
 
 
-ggplot(plastic_waste, aes(x= coastal_pop/total_pop , y= plastic_waste_per_cap, color = continent)) + geom_jitter() + geom_smooth() + labs(title = "Plastic waste vs. coastal population proportion" , subtitle = "by continent" , x = "Coastal population proportion (Coastal/total population")
+ggplot (aes(x= coastal_pop/total_pop , y= plastic_waste_per_cap)) + geom_point(aes(color=continent)) + geom_smooth(aes(x= coastal_pop/total_pop , y= plastic_waste_per_cap )) + labs(title = "Plastic waste vs. coastal population proportion" , subtitle = "by continent" , x = "Coastal population proportion (Coastal/total population)")
 ```
+Dr. Garrison and I decided that it was not worth more effort to turn the confidence interval line black; I tinkered enough with this code to achieve the goals of exercise 5:) 
+As a summary of this plot it seems that those who live on the coast have mostly low levels of plastic waste per capita; however, there are outliers. 
 
 
