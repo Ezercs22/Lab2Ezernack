@@ -24,6 +24,7 @@ ggplot(data = plastic_waste, aes(x = plastic_waste_per_cap)) + geom_histogram(bi
 
 
 ```
+
 Africa is the continent that overall does a better job at minimizing plastic waste per capita; however, plastic waste output varies by country inside the continents itself 
 
 ### Exercise 2
@@ -31,6 +32,7 @@ Africa is the continent that overall does a better job at minimizing plastic was
 ```{r plastic-waste-density}
 ggplot(data = plastic_waste, aes(x=plastic_waste_per_cap, color = continent, fill = continent)) + geom_density(alpha = 0.1)
 ```
+
 Fill and color occurred within the aes() function since it has to do with mapping the quality of each point such as defining its color by continent, and viewing density by continent color. However, alpha is defined within geom_density since transparency has to do with the mapping of the graph between the points overall. 
 
 ### Exercise 3
@@ -58,6 +60,7 @@ The relationship shows those who do not have much mismanaged waste per capita ha
 ```{r plastic-waste-mismanaged-continent}
 ggplot(plastic_waste, aes(x=plastic_waste_per_cap, y= mismanaged_plastic_waste_per_cap, color = continent)) + geom_point()
 ```
+
 With Europe there seems to be a positive linear correlation between plastic waste and mismanaged waste per capita. However, with Africa it seems that even low there are low levels of plastic waste generally, there is a presence of a lot of mismanaged plastic waste per capita. 
 
 ```{r plastic-waste-population-total}
@@ -80,6 +83,7 @@ plastic_waste %>%
 
 ggplot (aes(x= coastal_pop/total_pop , y= plastic_waste_per_cap)) + geom_point(aes(color=continent)) + geom_smooth(aes(x= coastal_pop/total_pop , y= plastic_waste_per_cap )) + labs(title = "Plastic waste vs. coastal population proportion" , subtitle = "by continent" , x = "Coastal population proportion (Coastal/total population)")
 ```
+
 Dr. Garrison and I decided that it was not worth more effort to turn the confidence interval line black; I tinkered enough with this code to achieve the goals of exercise 5:) 
 As a summary of this plot it seems that those who live on the coast have mostly low levels of plastic waste per capita; however, there are outliers. 
 
